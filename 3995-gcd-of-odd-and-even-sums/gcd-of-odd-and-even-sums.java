@@ -8,8 +8,8 @@ class Solution {
         return a;
     }
     public int gcdOfOddEvenSums(int n) {
-        int oddSum = (n*(2+(n-1)*2))/2;
-        int evenSum = (n*(4+(n-1)*2))/2;
+        int oddSum = n*n;
+        int evenSum = n*(n+1);
         return gcd(oddSum, evenSum);
     }
 }
