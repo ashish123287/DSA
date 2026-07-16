@@ -4,13 +4,14 @@ class Solution {
         int max = Integer.MIN_VALUE;
 
         for(int i = 0; i < nums.length; i++){
-            String s = nums[i]+"";
+            int temp = nums[i];
             int mx = 0;
             int mn = 9;
-            for(int j = 0; j < s.length(); j++){
-                int ch = s.charAt(j)-'0';
-                mx = Math.max(mx, ch);
-                mn = Math.min(mn, ch);
+            while(temp != 0){
+                int d = temp%10;
+                mx = Math.max(mx, d);
+                mn = Math.min(mn, d);
+                temp = temp/10;
             }
             map[i] = mx-mn;
             max = Math.max(max, map[i]);
@@ -21,7 +22,7 @@ class Solution {
         for(int i = 0; i < nums.length; i++){
             if(map[i] == max) sum += nums[i];
         }
-        
+
         return sum;
     }
 }
